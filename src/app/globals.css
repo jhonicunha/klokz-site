@@ -1,53 +1,50 @@
 @import "tailwindcss";
 @config "../../tailwind.config.ts";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --primary: #00a0ed;
-  --secondary: #0c4b67;
-
-  --primary-accent: #0c4b67;
-  --foreground-accent: #454545;
-  --hero-background: #F3F3F5;
+@theme {
+  --font-space-grotesk: var(--font-space-grotesk);
 }
 
 html {
-  @apply scroll-smooth;
+  font-size: 90%;
+  /* Scale entire site down by 10% */
+}
+
+:root {
+  /* Dark Mode Theme optimized for Klokz360 */
+  --background: #0D0D0D;
+  /* Deep dark background */
+  --foreground: #FFFFFF;
+  /* White text */
+
+  --primary: #2563EB;
+  /* Royal Blue */
+  --primary-foreground: #FFFFFF;
+
+  --secondary: #1F1F23;
+  /* Slightly lighter for cards/sections */
+  --secondary-foreground: #FFFFFF;
+
+  --accent: #1E40AF;
+  /* Darker Blue for gradients */
+  --accent-foreground: #FFFFFF;
+
+  --muted: #27272A;
+  --muted-foreground: #A1A1AA;
+
+  --border: #27272A;
 }
 
 body {
-  @apply text-lg;
-  
   color: var(--foreground);
   background: var(--background);
-  font-family: "Source Sans 3", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
+  font-family: var(--font-space-grotesk), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-.manrope {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "Manrope", sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-
-#logos svg {
-  @apply w-fit h-10 sm:h-12;
-}
-
-.benefit-section:last-of-type > div {
-  @apply mb-10;
 }

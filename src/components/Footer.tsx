@@ -1,68 +1,61 @@
-import Link from 'next/link';
-import React from 'react';
-
-import { footerDetails } from '@/data/footer';
-import { getPlatformIconByName } from '@/utils';
-import Image from "next/image";
+import React from "react";
+import Link from "next/link";
+import { FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-primary text-foreground  text-white">
-            <section className="top-0 left-0 right-0 bg-secondary text-secondary">
-               .
-            </section>
-            <div className="max-w-7xl w-full mx-auto py-10 px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
-                <div>
-                    <Link href="/" className="">
-                        <Image
-                            src="/images/logo.png"
-                            alt="Logo Klokz"
-                            width={100}
-                            height={50}
-                        />
-                    </Link>
-                    <p className="mt-3.5 text-white">
-                        Tudo em um sistema!
+        <footer className="bg-background border-t border-white/10 pt-16 pb-8">
+            <div className="container mx-auto px-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                    {/* Brand Column */}
+                    <div className="space-y-6">
+                        <h2 className="text-2xl font-bold text-white tracking-tighter">Klokz</h2>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Soluções Inteligentes para Bares, Baladas e Eventos. Simplifique sua gestão e maximize seus lucros.
+                        </p>
+                        <div className="flex gap-4">
+                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all text-lg">
+                                <FaLinkedinIn />
+                            </a>
+                            <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-primary hover:text-white transition-all text-lg">
+                                <FaInstagram />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Links Column */}
+                    <div>
+                        <h3 className="text-white font-bold mb-6">Navegação</h3>
+                        <ul className="space-y-4">
+                            <li><Link href="#solutions" className="text-gray-400 hover:text-primary transition-colors">Soluções</Link></li>
+                            <li><Link href="#diferenciais" className="text-gray-400 hover:text-primary transition-colors">Diferenciais</Link></li>
+                            <li><Link href="#testimonials" className="text-gray-400 hover:text-primary transition-colors">Depoimentos</Link></li>
+                            <li><Link href="#contact" className="text-gray-400 hover:text-primary transition-colors">Contato</Link></li>
+                        </ul>
+                    </div>
+
+                    {/* Contact Column */}
+                    <div>
+                        <h3 className="text-white font-bold mb-6">Contato</h3>
+                        <ul className="space-y-4">
+                            <li className="flex items-center gap-3 text-gray-400">
+                                <span>(41) 99998-8288</span>
+                            </li>
+                            <li className="flex items-center gap-3 text-gray-400">
+                                <span>admin@klockz.com.br</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div className="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p className="text-gray-500 text-sm">
+                        © 2026 KLOKZ SISTEMAS LTDA. Todos os direitos reservados.
+                    </p>
+                    <p className="text-gray-500 text-sm flex items-center gap-1">
+                        Feito com inteligência por <a href="https://pushtecnologia.com.br" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-primary transition-colors">pushtecnologia.com.br</a>
                     </p>
                 </div>
-                <div>
-                    <h4 className="text-lg font-semibold mb-4 text-white">Acesso Rápido</h4>
-                    <ul className="text-white">
-                        {footerDetails.quickLinks.map(link => (
-                            <li key={link.text} className="mb-2">
-                                <Link href={link.url} className="hover:text-foreground">{link.text}</Link>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <h4 className="text-lg font-semibold mb-4 text-white">Contato</h4>
-
-                    {footerDetails.email && <a href={`mailto:${footerDetails.email}`}  className="block hover:text-foreground">Email: {footerDetails.email}</a>}
-
-                    {footerDetails.telephone && <a href={`tel:${footerDetails.telephone}`} className="block hover:text-foreground">Fone: {footerDetails.telephone}</a>}
-                    Atendimento das 14h à 00h.
-                    {footerDetails.socials && (
-                        <div className="mt-5 flex items-center gap-5 flex-wrap">
-                            {Object.keys(footerDetails.socials).map(platformName => {
-                                if (platformName && footerDetails.socials[platformName]) {
-                                    return (
-                                        <Link
-                                            href={footerDetails.socials[platformName]}
-                                            key={platformName}
-                                            aria-label={platformName}
-                                        >
-                                            {getPlatformIconByName(platformName)}
-                                        </Link>
-                                    )
-                                }
-                            })}
-                        </div>
-                    )}
-                </div>
-            </div>
-            <div className="mt-8 md:text-center py-3">
-                <p> &copy; {new Date().getFullYear()} Klokz Sistemas Ltda. Todos os direitos reservados.</p>
             </div>
         </footer>
     );

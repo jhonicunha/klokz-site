@@ -1,46 +1,24 @@
-import Hero from "@/components/Hero";
-import Testimonials from "@/components/Testimonials";
-import Pricing from "@/components/Pricing/Pricing";
-import FAQ from "@/components/FAQ";
-import Logos from "@/components/Logos";
-import Benefits from "@/components/Benefits/Benefits";
-import Container from "@/components/Container";
-import Section from "@/components/Section";
-import Stats from "@/components/Stats";
-import CTA from "@/components/CTA";
 
-const HomePage: React.FC = () => {
+import { Navbar } from "@/components/layout/navbar";
+import { Footer } from "@/components/layout/footer";
+import { Hero } from "@/components/sections/hero";
+import { ProblemStatement } from "@/components/sections/problem-statement";
+import { IntegratedSolutions } from "@/components/sections/integrated-solutions";
+import { Partners } from "@/components/sections/partners";
+import { Testimonials } from "@/components/sections/testimonials";
+
+export default function Home() {
   return (
-    <>
-      <Hero />
-      <Logos />
-      <Container>
-        <Benefits />
-
-        <Section
-          id="pricing"
-          title="Pricing"
-          description="Simple, transparent pricing. No surprises."
-        >
-          <Pricing />
-        </Section>
-
-        <Section
-          id="testimonials"
-          title="What Our Clients Say"
-          description="Hear from those who have partnered with us."
-        >
-          <Testimonials />
-        </Section>
-
-        <FAQ />
-
-        <Stats />
-        
-        <CTA />
-      </Container>
-    </>
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <main className="flex-1">
+        <Hero />
+        <ProblemStatement />
+        <IntegratedSolutions />
+        <Partners />
+        <Testimonials />
+      </main>
+      <Footer />
+    </div>
   );
-};
-
-export default HomePage;
+}

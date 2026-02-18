@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -8,28 +9,32 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      animation: {
-        "loop-scroll": "loop-scroll 50s linear infinite",
-      },
-      keyframes: {
-        "loop-scroll": {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(-100%)" },
-        },
-      },
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "var(--primary)",
-        secondary: "var(--secondary)",
-
-        "primary-accent": "var(--primary-accent)",
-        "foreground-accent": "var(--foreground-accent)",
-        "hero-background": "var(--hero-background)",
+        primary: {
+          DEFAULT: "var(--primary)",
+          foreground: "var(--primary-foreground)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          foreground: "var(--secondary-foreground)",
+        },
+        accent: {
+          DEFAULT: "var(--accent)",
+          foreground: "var(--accent-foreground)",
+        },
+        muted: {
+          DEFAULT: "var(--muted)",
+          foreground: "var(--muted-foreground)",
+        },
+        border: "var(--border)",
+      },
+      fontFamily: {
+        sans: ['var(--font-space-grotesk)', 'sans-serif'],
       },
     },
   },
   plugins: [],
 };
-
 export default config;

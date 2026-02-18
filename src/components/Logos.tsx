@@ -1,215 +1,54 @@
 import Image from "next/image";
 
+const clients = [
+  "bergamotta.png",
+  "dfive.png",
+  "imperiolounge.png",
+  "kingsmoke.png",
+  "llum.png",
+  "monkey.png",
+  "narnialounge.png",
+  "p2pub.png",
+  "velhojack.png",
+];
+
 const Logos: React.FC = () => {
   return (
-    <section id="logos" className="py-32 px-5 bg-background">
-      <p className="text-lg font-medium text-center pb-10">
-        Usado e Aprovado por
-      </p>
-      <div className="flex overflow-hidden space-x-16">
-        {/* PRIMEIRO CONJUNTO DE IMAGENS NA ANIMAÇÃO */}
-        <div className="flex flex-shrink-0 space-x-16 animate-loop-scroll">
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/bergamotta.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Bergamotta logo"
-            />
-          </div>
+    <section id="logos" className="py-10 bg-background border-b border-white/5">
+      <div className="container mx-auto px-4 mb-6">
+        <p className="text-sm font-semibold text-center text-gray-500 uppercase tracking-widest">
+          Usado e Aprovado por
+        </p>
+      </div>
 
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/dfive.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Dfive logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/imperiolounge.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Imperio Lounge logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/kingsmoke.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Kingsmoke logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/llum.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="llum logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/monkey.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Monkey logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/narnialounge.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Narnia logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/p2pub.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="P2Pub logo"
-            />
-          </div>
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/velhojack.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Velho Jack logo"
-            />
-          </div>
+      <div className="relative flex overflow-x-hidden group">
+        <div className="flex animate-loop-scroll whitespace-nowrap hover:paused py-4 items-center">
+          {[...clients, ...clients].map((client, index) => (
+            <div key={`${client}-${index}`} className="flex items-center justify-center mx-8 min-w-[120px]">
+              <div className="relative h-12 w-32 transition-all duration-300 opacity-50 hover:opacity-100" style={{ filter: "brightness(0) invert(1)" }}>
+                <Image
+                  src={`/images/clients/${client}`}
+                  alt={client.replace(".png", "")}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            </div>
+          ))}
         </div>
-
-        {/* SEGUNDO CONJUNTO PARA O LOOP INFINITO */}
-        <div
-          className="flex flex-shrink-0 space-x-16 animate-loop-scroll"
-          aria-hidden="true"
-        >
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/bergamotta.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Bergamotta logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/dfive.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Dfive logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/imperiolounge.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Imperio Lounge logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/kingsmoke.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Kingsmoke logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/llum.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="llum logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/monkey.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Monkey logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/narnialounge.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Narnia logo"
-            />
-          </div>
-
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/p2pub.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="P2Pub logo"
-            />
-          </div>
-          <div className="h-16 w-auto flex items-center">
-            <Image
-              loading="lazy"
-              src="/images/clients/velhojack.png"
-              className="h-full w-auto object-contain"
-              width={100}
-              height={50}
-              alt="Velho Jack logo"
-            />
-          </div>
+        <div className="flex animate-loop-scroll whitespace-nowrap hover:paused py-4 absolute top-0 left-full items-center">
+          {[...clients, ...clients].map((client, index) => (
+            <div key={`${client}-${index}-dup`} className="flex items-center justify-center mx-8 min-w-[120px]">
+              <div className="relative h-12 w-32 transition-all duration-300 opacity-50 hover:opacity-100" style={{ filter: "brightness(0) invert(1)" }}>
+                <Image
+                  src={`/images/clients/${client}`}
+                  alt={client.replace(".png", "")}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
