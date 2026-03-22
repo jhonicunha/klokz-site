@@ -27,7 +27,7 @@ export function Hero() {
             <Container className="relative z-10 flex flex-col items-center text-center justify-center -mt-12">
 
                 {/* Main Headline */}
-                <h1 className="text-[2.25rem] font-bold text-white mb-[22px] max-w-[900px] mx-auto leading-[1.05] tracking-tight">
+                <h1 className="text-[2.75rem] md:text-[3rem] font-bold text-white mb-[22px] max-w-[900px] mx-auto leading-[1.05] tracking-tight">
                     NÃO SOMOS UM <span className="text-[#00B4D8]">PDV</span><span className="text-white">.</span>
                     <br />
                     SOMOS <span className="text-[#00B4D8]">CONTROLE TOTAL</span>

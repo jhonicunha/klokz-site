@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 const navigation = [
   { name: "Soluções", href: "#solutions" },
@@ -29,9 +30,17 @@ export default function Header() {
   return (
     <header className={scrolled ? scrolledNavClass : defaultNavClass}>
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-        <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 text-2xl font-bold text-white tracking-tighter">
-            Klokz
+        <div className="flex lg:flex-1 lg:-ml-6">
+          <Link href="/" className="-m-1.5 p-1.5">
+            <span className="sr-only">Klokz</span>
+            <Image
+              src="/images/logoklokz.png"
+              alt="Klokz"
+              width={80}
+              height={80}
+              className="h-20 w-auto"
+              priority
+            />
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -54,7 +63,7 @@ export default function Header() {
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm font-semibold leading-6 text-gray-300 hover:text-white transition-colors">
+            <Link key={item.name} href={item.href} className="text-base font-semibold leading-6 text-gray-300 hover:text-white transition-colors">
               {item.name}
             </Link>
           ))}
@@ -62,9 +71,9 @@ export default function Header() {
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <Link
             href="#contact"
-            className="rounded-full bg-primary px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-primary/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary transition-all duration-200"
+            className="rounded-xl bg-brand-gradient px-8 py-3 text-sm font-bold text-white shadow-sm hover:opacity-90 transition-all duration-200 uppercase tracking-wider"
           >
-            Agende uma Demo
+            TESTE GRÁTIS
           </Link>
         </div>
       </nav>
@@ -74,8 +83,15 @@ export default function Header() {
           <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" onClick={() => setIsOpen(false)} />
           <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-background px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-white/10">
             <div className="flex items-center justify-between">
-              <Link href="/" className="-m-1.5 p-1.5 text-2xl font-bold text-white tracking-tighter" onClick={() => setIsOpen(false)}>
-                Klokz
+              <Link href="/" className="-m-1.5 p-1.5" onClick={() => setIsOpen(false)}>
+                <span className="sr-only">Klokz</span>
+                <Image
+                  src="/images/logoklokz.png"
+                  alt="Klokz"
+                  width={64}
+                  height={64}
+                  className="h-16 w-auto"
+                />
               </Link>
               <button
                 type="button"
@@ -105,10 +121,10 @@ export default function Header() {
                 <div className="py-6">
                   <Link
                     href="#contact"
-                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-white/5"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white bg-brand-gradient text-center mt-4"
                     onClick={() => setIsOpen(false)}
                   >
-                    Agende uma Demo
+                    TESTE GRÁTIS
                   </Link>
                 </div>
               </div>

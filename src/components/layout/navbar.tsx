@@ -35,7 +35,7 @@ export function Navbar() {
                 <div className="flex items-center justify-between h-[80px]">
                     {/* Logo K */}
                     <Link href="/" className="flex items-center">
-                        <div className="relative w-28 h-8">
+                        <div className="relative w-[202px] h-[58px]">
                             <Image
                                 src="/images/logoklokz.png"
                                 alt="Klokz Logo"

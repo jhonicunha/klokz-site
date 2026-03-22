@@ -5,13 +5,10 @@ const CTAButton = ({ dark }: { dark?: boolean }) => {
   return (
 
     <div
-      className="flex items-center justify-center min-w-[205px] mt-3 px-6 h-14 rounded-full w-full sm:w-fit text-white bg-primary hover:bg-primary/90"
+      className="flex items-center justify-center min-w-[300px] px-8 h-16 rounded-lg text-white bg-brand-gradient hover:opacity-90 transition-all duration-200 cursor-pointer shadow-lg shadow-primary/20"
     >
-      <div>
-        <div className="text-xs">Implementação sem Custo</div>
-        <div className="-mt-1 font-sans text-xl font-semibold">
-          Teste Grátis por 30 dias
-        </div>
+      <div className="text-xl font-bold">
+        Testar 30 dias grátis
       </div>
     </div >
 

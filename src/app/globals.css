@@ -10,19 +10,19 @@
   --background: #0D0D0D;
   --foreground: #FFFFFF;
 
-  --primary: #2563EB;
+  --primary: #00d1ff; /* Cyan */
   --primary-foreground: #FFFFFF;
 
-  --secondary: #1F1F23;
+  --secondary: #6366f1; /* Indigo/Purple */
   --secondary-foreground: #FFFFFF;
 
-  --accent: #1E40AF;
+  --accent: #00d1ff;
   --accent-foreground: #FFFFFF;
 
-  --muted: #27272A;
+  --muted: #1F1F23;
   --muted-foreground: #A1A1AA;
 
-  --border: #27272A;
+  --border: rgba(255, 255, 255, 0.1);
 }
 
 body {
@@ -36,6 +36,12 @@ body {
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .bg-brand-gradient {
+    background: linear-gradient(90deg, #00d1ff 0%, #6366f1 100%);
+  }
+  .text-brand-cyan {
+    color: #00d1ff;
   }
 }
 
