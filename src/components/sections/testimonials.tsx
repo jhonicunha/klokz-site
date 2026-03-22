@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
-import { motion } from 'framer-motion';
 import { FaChevronLeft, FaChevronRight, FaQuoteLeft } from 'react-icons/fa';
 
 const testimonials = [
@@ -27,12 +26,6 @@ const testimonials = [
         image: '/images/testimonial-3.webp',
         content: 'Já usei diversos sistemas, mas o Klokz é o único que realmente entende a dinâmica de uma balada. O suporte é incrível e as funcionalidades são pensadas para o nosso dia a dia.'
     },
-    {
-        name: 'Ana P.',
-        role: 'Proprietária Bar do Zé',
-        image: '/images/testimonial-1.webp',
-        content: 'Simples, intuitivo e completo. O cardápio digital aumentou nosso ticket médio em 20% logo no primeiro mês de uso.'
-    }
 ];
 
 export function Testimonials() {
@@ -46,88 +39,75 @@ export function Testimonials() {
         setCurrentIndex((prev) => (prev - 1) < 0 ? testimonials.length - 1 : prev - 1);
     };
 
-    // Logic to show 3 cards (desktop) or 1 (mobile)
-    // For simplicity in this iteration, we slide one by one but show a window of 3
-
-    const getVisibleTestimonials = () => {
-        const visible = [];
-        for (let i = 0; i < 3; i++) {
-            visible.push(testimonials[(currentIndex + i) % testimonials.length]);
-        }
-        return visible;
-    };
+    const currentTestimonial = testimonials[currentIndex];
 
     return (
-        <Section className="bg-[#0f0f11] py-20 overflow-hidden">
+        <Section id="testimonials" className="bg-[#0D0D0D] py-20">
             <Container>
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase">
+                <div className="text-center mb-12">
+                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 uppercase">
                         O que nossos <span className="text-primary">clientes dizem</span>
                     </h2>
-                    <p className="text-gray-400">
-                        Junte-se a mais de 1000 casas noturnas que confiam no Klokz.
+                    <p className="text-gray-400 text-sm md:text-base">
+                        Conheça os relatos de quem já revolucionou a gestão do seu estabelecimento com o Klokz.
                     </p>
                 </div>
 
-                <div className="relative max-w-6xl mx-auto">
-                    {/* Navigation Buttons */}
-                    <button
-                        onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors disabled:opacity-50"
-                    >
-                        <FaChevronLeft />
-                    </button>
+                <div className="relative max-w-3xl mx-auto">
+                    {/* Featured Testimonial Card */}
+                    <div className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-blue-600/20 via-blue-700/10 to-transparent border border-blue-500/20 p-8 md:p-12">
+                        {/* Quote icon */}
+                        <FaQuoteLeft className="text-blue-500/20 text-5xl absolute top-6 left-6" />
 
-                    <button
-                        onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-white transition-colors disabled:opacity-50"
-                    >
-                        <FaChevronRight />
-                    </button>
+                        <p className="text-gray-200 text-base md:text-lg leading-relaxed mb-8 relative z-10 italic">
+                            &ldquo;{currentTestimonial.content}&rdquo;
+                        </p>
 
-                    {/* Slider Layout */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 overflow-hidden px-12">
-                        {getVisibleTestimonials().map((testimonial, index) => (
-                            <motion.div
-                                key={`${testimonial.name}-${index}`}
-                                initial={{ opacity: 0, x: 50 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                exit={{ opacity: 0, x: -50 }}
-                                transition={{ duration: 0.3 }}
-                                className="bg-[#18181b] border border-white/5 rounded-2xl p-8 flex flex-col h-full relative"
-                            >
-                                <FaQuoteLeft className="text-primary/20 text-4xl absolute top-6 left-6" />
-                                <p className="text-gray-300 italic mb-8 mt-8 leading-relaxed z-10 relative">
-                                    "{testimonial.content}"
-                                </p>
-                                <div className="mt-auto flex items-center gap-4">
-                                    <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-primary/50">
-                                        <Image
-                                            src={testimonial.image}
-                                            alt={testimonial.name}
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                    <div>
-                                        <h4 className="text-white font-bold">{testimonial.name}</h4>
-                                        <p className="text-primary text-xs uppercase tracking-wider">{testimonial.role}</p>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
+                        <div className="flex items-center gap-4 relative z-10">
+                            <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-primary/50 shrink-0">
+                                <Image
+                                    src={currentTestimonial.image}
+                                    alt={currentTestimonial.name}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
+                            <div>
+                                <h4 className="text-white font-bold text-base">{currentTestimonial.name}</h4>
+                                <p className="text-primary text-xs uppercase tracking-wider">{currentTestimonial.role}</p>
+                            </div>
+                        </div>
+
+                        {/* Ambient blue glow */}
+                        <div className="absolute -bottom-20 -right-20 w-60 h-60 bg-blue-600/10 rounded-full blur-[80px]" />
                     </div>
 
-                    {/* Pagination Indicators */}
-                    <div className="flex justify-center mt-8 gap-2">
-                        {testimonials.map((_, idx) => (
-                            <button
-                                key={idx}
-                                onClick={() => setCurrentIndex(idx)}
-                                className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex ? 'bg-primary w-6' : 'bg-white/20'
-                                    }`}
-                            />
-                        ))}
+                    {/* Navigation */}
+                    <div className="flex items-center justify-center gap-4 mt-8">
+                        <button
+                            onClick={prevSlide}
+                            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors"
+                        >
+                            <FaChevronLeft size={14} />
+                        </button>
+
+                        <div className="flex gap-2">
+                            {testimonials.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setCurrentIndex(idx)}
+                                    className={`w-2 h-2 rounded-full transition-all duration-300 ${idx === currentIndex ? 'bg-primary w-6' : 'bg-white/20 hover:bg-white/40'
+                                        }`}
+                                />
+                            ))}
+                        </div>
+
+                        <button
+                            onClick={nextSlide}
+                            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 text-gray-400 flex items-center justify-center hover:bg-primary hover:text-white hover:border-primary transition-colors"
+                        >
+                            <FaChevronRight size={14} />
+                        </button>
                     </div>
                 </div>
             </Container>

@@ -5,28 +5,18 @@
   --font-space-grotesk: var(--font-space-grotesk);
 }
 
-html {
-  font-size: 90%;
-  /* Scale entire site down by 10% */
-}
-
 :root {
-  /* Dark Mode Theme optimized for Klokz360 */
+  /* Dark Mode Theme optimized for Klokz */
   --background: #0D0D0D;
-  /* Deep dark background */
   --foreground: #FFFFFF;
-  /* White text */
 
   --primary: #2563EB;
-  /* Royal Blue */
   --primary-foreground: #FFFFFF;
 
   --secondary: #1F1F23;
-  /* Slightly lighter for cards/sections */
   --secondary-foreground: #FFFFFF;
 
   --accent: #1E40AF;
-  /* Darker Blue for gradients */
   --accent-foreground: #FFFFFF;
 
   --muted: #27272A;
@@ -47,4 +37,24 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0D0D0D;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
 }
