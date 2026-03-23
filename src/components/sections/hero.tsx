@@ -24,26 +24,26 @@ export function Hero() {
                 <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-[#00B4D8]/[0.08] rounded-full blur-[130px]" />
             </div>
 
-            <Container className="relative z-10 flex flex-col items-center text-center justify-center -mt-12">
+            <Container className="relative z-10 flex flex-col items-center text-center justify-center mt-[32px] md:mt-[92px]">
 
                 {/* Main Headline */}
-                <h1 className="text-[2.75rem] md:text-[3rem] font-bold text-white mb-[22px] max-w-[900px] mx-auto leading-[1.05] tracking-tight">
-                    NÃO SOMOS UM <span className="text-[#00B4D8]">PDV</span><span className="text-white">.</span>
-                    <br />
-                    SOMOS <span className="text-[#00B4D8]">CONTROLE TOTAL</span>
-                    <br />
-                    DA OPERAÇÃO DO SEU <span className="text-[#00B4D8]">BAR</span><span className="text-white">.</span>
+                <h1 className="text-[1.8rem] sm:text-[2.25rem] lg:text-[2.75rem] font-bold text-white mb-[22px] max-w-[900px] mx-auto leading-[1.2] md:leading-[1.05] tracking-tight">
+                    NÃO SOMOS UM <span className="efeito-piscante-roxo" data-text="PDV">PDV</span><span className="text-white">.</span>{' '}
+                    <br className="hidden md:block" />
+                    SOMOS <span className="efeito-piscante-roxo" data-text="CONTROLE TOTAL">CONTROLE TOTAL</span>{' '}
+                    <br className="hidden md:block" />
+                    DA OPERAÇÃO DO SEU <span className="efeito-piscante-roxo" data-text="BAR">BAR</span><span className="text-white">.</span>
                 </h1>
 
                 {/* Subtitle */}
-                <p className="text-[1.125rem] font-medium text-[#D4D4D8] italic mb-9 max-w-[500px] mx-auto leading-[1.6]">
+                <p className="text-[0.85rem] md:text-[1.125rem] font-medium text-[#D4D4D8] italic mb-9 max-w-[280px] md:max-w-[500px] mx-auto leading-[1.6]">
                     Da recepção ao financeiro. Cada ação registrada. Cada movimento rastreável.
                 </p>
 
                 {/* CTA Button */}
                 <div className="w-full max-w-[420px] mb-8">
                     <button
-                        className="w-full h-[54px] rounded-[8px] text-white font-bold text-[14px] transition-all duration-300 hover:brightness-110 cursor-pointer shadow-[0_4px_14px_0_rgba(0,180,216,0.2)]"
+                        className="w-full h-[48px] md:h-[54px] rounded-[8px] text-white font-bold text-[0.875rem] md:text-[14px] transition-all duration-300 hover:brightness-110 cursor-pointer shadow-[0_4px_14px_0_rgba(0,180,216,0.2)]"
                         style={{
                             background: 'linear-gradient(90deg, #00B4D8 0%, #8B5CF6 100%)',
                         }}
@@ -61,7 +61,7 @@ export function Hero() {
                     ].map((text, idx) => (
                         <div key={idx} className="flex items-center gap-[8px]">
                             <FaCheck className="text-[#00B4D8] text-[11px] shrink-0" />
-                            <span className="text-[#F4F4F5] text-[0.875rem] font-medium">{text}</span>
+                            <span className="text-[#F4F4F5] text-[0.75rem] md:text-[0.875rem] font-medium">{text}</span>
                         </div>
                     ))}
                 </div>

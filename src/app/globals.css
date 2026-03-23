@@ -33,6 +33,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+@keyframes blink-purple {
+  0%, 15% {
+    opacity: 0;
+  }
+  45%, 55% {
+    opacity: 1;
+  }
+  85%, 100% {
+    opacity: 0;
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -42,6 +54,27 @@ body {
   }
   .text-brand-cyan {
     color: #00d1ff;
+  }
+  .efeito-piscante-roxo {
+    position: relative;
+    display: inline-block;
+    color: rgb(8, 178, 241);
+  }
+  
+  .efeito-piscante-roxo::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradient diagonal on the right side - #11146e6 with opacity */
+    background: linear-gradient(110deg, transparent 40%, rgba(111, 70, 230, 0.85) 75%, rgba(111, 70, 230, 0.95) 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation: blink-purple 6s ease-in-out infinite;
+    pointer-events: none;
   }
 }
 
