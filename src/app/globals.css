@@ -10,17 +10,17 @@
   --background: #0D0D0D;
   --foreground: #FFFFFF;
 
-  --primary: #00d1ff; /* Cyan */
+  --primary: #10A7F1; /* Cyan */
   --primary-foreground: #FFFFFF;
 
-  --secondary: #6366f1; /* Indigo/Purple */
+  --secondary: #882FE3; /* Indigo/Purple */
   --secondary-foreground: #FFFFFF;
 
-  --accent: #00d1ff;
+  --accent: #10A7F1;
   --accent-foreground: #FFFFFF;
 
   --muted: #1F1F23;
-  --muted-foreground: #A1A1AA;
+  --muted-foreground: #DCDCDC;
 
   --border: rgba(255, 255, 255, 0.1);
 }
@@ -50,15 +50,15 @@ body {
     text-wrap: balance;
   }
   .bg-brand-gradient {
-    background: linear-gradient(90deg, #00d1ff 0%, #6366f1 100%);
+    background: linear-gradient(90deg, #10A7F1 0%, #882FE3 100%);
   }
   .text-brand-cyan {
-    color: #00d1ff;
+    color: #10A7F1;
   }
   .efeito-piscante-roxo {
     position: relative;
     display: inline-block;
-    color: rgb(8, 178, 241);
+    color: #10A7F1;
   }
   
   .efeito-piscante-roxo::after {
@@ -96,4 +96,22 @@ html {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #3f3f46;
+}
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-scale {
+  animation: pulse-scale 2s ease-in-out infinite;
+}
+
+/* Accessibility settings */
+html.high-contrast {
+  filter: contrast(135%) saturate(120%);
 }

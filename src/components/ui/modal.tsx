@@ -1,6 +1,17 @@
 import React, { Fragment } from 'react';
 import { Dialog, Transition, Disclosure } from '@headlessui/react';
-import { FaTimes, FaChevronDown, FaPlus } from 'react-icons/fa';
+import { FaTimes, FaPlus, FaMinus } from 'react-icons/fa';
+
+export interface AccordionSubItem {
+    title: string;
+    text: string;
+}
+
+export interface AccordionItem {
+    title: string;
+    description?: string;
+    subItems?: AccordionSubItem[];
+}
 
 interface ModalProps {
     isOpen: boolean;
@@ -9,9 +20,10 @@ interface ModalProps {
     description: string;
     icon?: React.ReactNode;
     features?: string[];
+    accordionItems?: AccordionItem[];
 }
 
-export function DescriptionModal({ isOpen, onClose, title, description, icon, features }: ModalProps) {
+export function DescriptionModal({ isOpen, onClose, title, description, icon, features, accordionItems }: ModalProps) {
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-50 text-left" onClose={onClose}>
@@ -38,31 +50,31 @@ export function DescriptionModal({ isOpen, onClose, title, description, icon, fe
                             leaveFrom="opacity-100 scale-100"
                             leaveTo="opacity-0 scale-95"
                         >
-                            <Dialog.Panel className="w-full max-w-2xl transform overflow-hidden rounded-2xl bg-[#18181b] border border-white/10 shadow-2xl transition-all flex flex-col max-h-[90vh]">
+                            <Dialog.Panel className="w-full max-w-[800px] transform overflow-hidden rounded-[16px] bg-[#151518] border border-white/5 shadow-[0_0_40px_rgba(0,0,0,0.5)] transition-all flex flex-col max-h-[90vh]">
 
                                 {/* Header */}
-                                <div className="relative p-6 md:p-8 border-b border-white/10 bg-[#1f1f23]">
+                                <div className="relative p-6 md:px-8 md:pt-8 md:pb-6 border-b border-white/5 bg-transparent">
                                     <button
                                         onClick={onClose}
-                                        className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full transition-colors z-10"
+                                        className="absolute top-4 right-4 p-[10px] text-gray-300 hover:text-white bg-[#111111] hover:bg-[#222222] rounded-full transition-colors z-10"
                                     >
-                                        <FaTimes />
+                                        <FaTimes className="w-[14px] h-[14px]" />
                                     </button>
 
-                                    <div className="flex flex-col md:flex-row gap-6 items-start">
+                                    <div className="flex flex-col md:flex-row gap-5 items-start">
                                         {icon && (
-                                            <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-primary/20 flex items-center justify-center text-primary text-3xl">
+                                            <div className="flex-shrink-0 w-[52px] h-[52px] rounded-[12px] bg-[#1A2634] border border-[#2B3A4A] flex items-center justify-center text-white">
                                                 {icon}
                                             </div>
                                         )}
-                                        <div className="space-y-2 pr-8">
+                                        <div className="space-y-[6px] pr-8 pt-1">
                                             <Dialog.Title
                                                 as="h3"
-                                                className="text-2xl font-bold leading-6 text-primary"
+                                                className="text-[24px] font-bold leading-tight text-[#10A7F1]"
                                             >
                                                 {title}
                                             </Dialog.Title>
-                                            <p className="text-gray-300 leading-relaxed text-sm md:text-base">
+                                            <p className="text-[#DCDCDC] leading-relaxed text-[14px]">
                                                 {description}
                                             </p>
                                         </div>
@@ -70,34 +82,69 @@ export function DescriptionModal({ isOpen, onClose, title, description, icon, fe
                                 </div>
 
                                 {/* Body - Scrollable */}
-                                <div className="p-6 md:p-8 overflow-y-auto flex-1 space-y-3">
-                                    {features?.map((feature, idx) => (
-                                        <div key={idx} className="bg-white/5 rounded-xl border border-white/5 overflow-hidden">
-                                            <div className="w-full px-4 py-4 flex justify-between items-center text-left">
-                                                <span className="font-bold text-white text-sm md:text-base">{feature}</span>
-                                                <FaPlus className="text-primary w-3 h-3" />
-                                            </div>
-                                            {/* Note: User image showed items with '+' icons. Assuming simplified accordion look or just list items implies capability. 
-                                                If real accordion functionality is needed for sub-content, we'd use Disclosure. 
-                                                For now matching the visual 'list with plus' look from the description/inference. 
-                                                If it needs to expand, we need content FOR the expansion. 
-                                                I will leave it as a static list item that LOOKS like the referenced accordion headers 
-                                                unless I invent sub-content. 
-                                                
-                                                Wait, user said "change the modal template to look as this image"
-                                                The image shows "Controle de Espaço [+]" etc.
-                                                It implies they might be expandable OR just purely visual indicators of features.
-                                                Since I don't have sub-content, I'll make them standard list items styled like the accordion headers in the image.
-                                            */}
-                                        </div>
-                                    ))}
+                                <div className="p-6 md:p-8 overflow-y-auto flex-1 space-y-[14px]">
+                                    {accordionItems ? (
+                                        accordionItems.map((item, idx) => (
+                                            <Disclosure as="div" key={idx} className="bg-transparent border border-white/5 rounded-[12px] overflow-hidden">
+                                                {({ open }) => (
+                                                    <>
+                                                        <Disclosure.Button className="flex w-full justify-between items-center px-6 py-5 text-left text-white hover:bg-white/5 transition-colors focus:outline-none">
+                                                            <span className="font-bold text-[15px]">{item.title}</span>
+                                                            {open ? (
+                                                                <FaMinus className="w-4 h-4 text-[#10A7F1] transition-transform duration-200" />
+                                                            ) : (
+                                                                <FaPlus className="w-4 h-4 text-[#882FE3] transition-transform duration-200" />
+                                                            )}
+                                                        </Disclosure.Button>
+                                                        <Disclosure.Panel className="px-6 pb-6">
+                                                            {item.description && (
+                                                                <p className="text-[14px] text-white leading-relaxed mb-5">
+                                                                    {item.description}
+                                                                </p>
+                                                            )}
+                                                            {item.subItems && item.subItems.length > 0 && (
+                                                                <div className="space-y-[18px]">
+                                                                    {item.subItems.map((sub, sIdx) => (
+                                                                        <div key={sIdx} className="border-l-[2px] border-[#10A7F1] pl-[14px]">
+                                                                            <h4 className="text-[#10A7F1] font-bold text-[14px] mb-1">{sub.title}</h4>
+                                                                            <p className="text-[#DCDCDC] text-[13px] leading-relaxed">{sub.text}</p>
+                                                                        </div>
+                                                                    ))}
+                                                                </div>
+                                                            )}
+                                                        </Disclosure.Panel>
+                                                    </>
+                                                )}
+                                            </Disclosure>
+                                        ))
+                                    ) : (
+                                        features?.map((feature, idx) => (
+                                            <Disclosure as="div" key={idx} className="bg-transparent border border-white/5 rounded-[12px] overflow-hidden">
+                                                {({ open }) => (
+                                                    <>
+                                                        <Disclosure.Button className="flex w-full justify-between items-center px-6 py-5 text-left text-white hover:bg-white/5 transition-colors focus:outline-none">
+                                                            <span className="font-bold text-[15px]">{feature}</span>
+                                                            {open ? (
+                                                                <FaMinus className="w-4 h-4 text-[#10A7F1] transition-transform duration-200" />
+                                                            ) : (
+                                                                <FaPlus className="w-4 h-4 text-[#882FE3] transition-transform duration-200" />
+                                                            )}
+                                                        </Disclosure.Button>
+                                                        <Disclosure.Panel className="px-6 pb-5 text-[14px] text-[#DCDCDC]">
+                                                            (Conteúdo da sanfona aguardando envio...)
+                                                        </Disclosure.Panel>
+                                                    </>
+                                                )}
+                                            </Disclosure>
+                                        ))
+                                    )}
                                 </div>
 
                                 {/* Footer */}
-                                <div className="p-6 md:p-8 pt-4 border-t border-white/10 bg-[#1f1f23]">
+                                <div className="px-6 md:px-8 py-6 border-t border-white/5 bg-transparent">
                                     <button
                                         type="button"
-                                        className="w-full rounded-xl bg-primary hover:bg-primary/90 py-4 text-base font-bold text-white uppercase tracking-wider transition-colors shadow-lg shadow-primary/20"
+                                        className="w-full rounded-[10px] bg-gradient-to-r from-[#10A7F1] to-[#882FE3] hover:brightness-110 py-[16px] text-[13px] font-bold text-white uppercase tracking-[1px] transition-all shadow-[0_4px_20px_rgba(16,167,241,0.25)]"
                                         onClick={onClose}
                                     >
                                         Entre em Contato

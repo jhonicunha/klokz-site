@@ -1,66 +1,75 @@
 
+"use client";
+
 import React from 'react';
 import { Container } from '@/components/ui/container';
 import { Section } from '@/components/ui/section';
-import { FaCogs, FaShieldAlt, FaHandshake, FaCloud, FaPlug, FaHeadset } from 'react-icons/fa';
+import { FaLayerGroup, FaShieldAlt, FaSlidersH, FaChartLine, FaGlobe, FaHeadset } from 'react-icons/fa';
 
 const differentiators = [
     {
-        icon: <FaCogs className="w-6 h-6" />,
-        title: 'Automação 100% Completa',
-        description: 'Desde a entrada do cliente até o fechamento do caixa, tudo é automatizado para eliminar falhas humanas e aumentar a eficiência.',
+        icon: <FaLayerGroup className="w-5 h-5" />,
+        title: 'Operação 100% Integrada',
+        description: 'Da portaria ao relatório financeiro — tudo conectado em uma única base de dados.',
     },
     {
-        icon: <FaShieldAlt className="w-6 h-6" />,
-        title: 'Prevenção e Auditoria',
-        description: 'Relatórios detalhados de movimentação, controle de acesso e auditoria completa para prevenir desvios e perdas financeiras.',
+        icon: <FaShieldAlt className="w-5 h-5" />,
+        title: 'Permissões e Auditoria Completa',
+        description: 'Defina níveis de acesso com precisão e rastreie cada ação realizada no sistema, com total transparência.',
     },
     {
-        icon: <FaHandshake className="w-6 h-6" />,
-        title: 'Assessoria Técnica',
-        description: 'Time especializado para te ajudar na implantação, treinamento da equipe e suporte contínuo para o sucesso do seu negócio.',
+        icon: <FaSlidersH className="w-5 h-5" />,
+        title: 'Adaptável à sua operação',
+        description: 'Configure regras, fluxos e permissões conforme o modelo do seu bar ou balada — sem engessar sua operação.',
     },
     {
-        icon: <FaCloud className="w-6 h-6" />,
-        title: 'Dados em Nuvem',
-        description: 'Acesse seus dados de qualquer lugar, a qualquer momento. Seus dados estão seguros e sempre disponíveis na nuvem.',
+        icon: <FaChartLine className="w-5 h-5" />,
+        title: 'Dados ao Vivo',
+        description: 'Acompanhe público, vendas e portaria em tempo real, de qualquer dispositivo.',
     },
     {
-        icon: <FaPlug className="w-6 h-6" />,
-        title: 'Integração com Delivery',
-        description: 'Conecte seu estabelecimento com as principais plataformas de delivery e receba pedidos diretamente no sistema.',
+        icon: <FaGlobe className="w-5 h-5" />,
+        title: 'Acesso de Qualquer Lugar',
+        description: 'Gerencie sua operação sem servidor local e sem depender de uma máquina específica, apenas com conexão à internet.',
     },
     {
-        icon: <FaHeadset className="w-6 h-6" />,
-        title: 'Suporte 24h',
-        description: 'Suporte técnico disponível em horários estendidos para garantir que sua operação nunca pare quando mais precisa.',
+        icon: <FaHeadset className="w-5 h-5" />,
+        title: 'Suporte para Noite Real',
+        description: 'Atendimento preparado para operação noturna e eventos de alto volume, quando você mais precisa.',
     },
 ];
 
 export function WhyKlokz() {
     return (
-        <Section id="features" className="bg-[#0a0a0c]">
+        <Section id="diferenciais" className="bg-black">
             <Container>
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 uppercase">
-                        Por que escolher o <span className="text-primary">KLOKZ</span>?
+                    <h2 className="text-3xl md:text-[44px] font-extrabold text-white mb-5 uppercase leading-tight tracking-tight">
+                        Por que escolher o{' '}
+                        <span className="efeito-piscante-roxo" data-text="KLOKZ?">KLOKZ?</span>
                     </h2>
-                    <p className="text-gray-400 text-base md:text-lg">
-                        Conheça os diferenciais que fazem a diferença na sua operação
+                    <p className="text-[#DCDCDC] text-[15px] md:text-[16px]">
+                        Desenvolvido por quem viveu a operação real da noite.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                     {differentiators.map((item, index) => (
                         <div
                             key={index}
-                            className="group p-6 rounded-2xl bg-[#141418] border border-white/5 hover:border-primary/40 transition-all duration-300 flex flex-col"
+                            className="group p-7 rounded-[16px] bg-[#111114] border border-white/5 hover:border-[#10A7F1]/40 hover:shadow-[0_0_20px_rgba(16,167,241,0.08)] transition-all duration-300 flex flex-col"
                         >
-                            <div className="w-11 h-11 rounded-lg bg-primary/15 flex items-center justify-center text-primary mb-5 group-hover:scale-110 group-hover:bg-primary/25 transition-all duration-300">
+                            {/* Icon with gradient background */}
+                            <div
+                                className="w-[46px] h-[46px] rounded-[12px] flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-300"
+                                style={{
+                                    background: 'linear-gradient(135deg, #10A7F1 0%, #882FE3 100%)',
+                                }}
+                            >
                                 {item.icon}
                             </div>
-                            <h3 className="text-lg font-bold text-white mb-3">{item.title}</h3>
-                            <p className="text-gray-500 text-sm leading-relaxed">
+                            <h3 className="text-[17px] font-bold text-[#10A7F1] mb-3 italic">{item.title}</h3>
+                            <p className="text-[#DCDCDC] text-[14px] leading-relaxed">
                                 {item.description}
                             </p>
                         </div>

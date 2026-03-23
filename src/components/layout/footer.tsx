@@ -3,16 +3,17 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
-import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
 
 export function Footer() {
     return (
-        <footer className="bg-[#080808] py-12 md:py-16 border-t border-white/5">
+        <footer className="bg-black pt-16 pb-8 border-t border-[#10A7F1]/30">
             <Container>
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                    {/* Brand */}
-                    <div className="space-y-4">
-                        <div className="relative w-28 h-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16 px-4 md:px-0">
+                    
+                    {/* Column 1: Brand & Social */}
+                    <div className="flex flex-col gap-5">
+                        <div className="relative w-20 h-20 mb-2">
                             <Image
                                 src="/images/logoklokz.png"
                                 alt="Klokz Logo"
@@ -20,62 +21,64 @@ export function Footer() {
                                 className="object-contain object-left"
                             />
                         </div>
-                        <p className="text-gray-500 text-sm leading-relaxed">
-                            Sistema completo de gestão para bares, casas noturnas e eventos.
+                        <p className="text-white text-[15px] font-medium leading-relaxed max-w-[280px]">
+                            Soluções Inteligentes para Bares, Baladas e Eventos
                         </p>
-                        <div className="flex gap-3">
-                            <Link href="#" className="text-gray-500 hover:text-primary transition-colors">
-                                <FaInstagram size={18} />
-                            </Link>
-                            <Link href="#" className="text-gray-500 hover:text-primary transition-colors">
-                                <FaLinkedin size={18} />
-                            </Link>
-                            <Link href="#" className="text-gray-500 hover:text-primary transition-colors">
-                                <FaWhatsapp size={18} />
-                            </Link>
+                        <div className="flex gap-4 mt-2">
+                            <a href="#" className="text-white hover:text-primary transition-colors" aria-label="Instagram">
+                                <FaInstagram size={22} className="stroke-1" />
+                            </a>
+                            <a href="#" className="text-white hover:text-primary transition-colors" aria-label="LinkedIn">
+                                <FaLinkedin size={22} className="stroke-1" />
+                            </a>
+                            <a href="#" className="text-white hover:text-primary transition-colors" aria-label="WhatsApp">
+                                <FaWhatsapp size={22} className="stroke-1" />
+                            </a>
                         </div>
                     </div>
 
-                    {/* Product */}
-                    <div>
-                        <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Produto</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="#solutions" className="text-gray-500 hover:text-primary transition-colors text-sm">Funcionalidades</Link></li>
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Para Bares</Link></li>
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Para Baladas</Link></li>
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Para Produtores</Link></li>
+                    {/* Column 2: Links Rápidos */}
+                    <div className="flex flex-col gap-4">
+                        <h3 className="font-bold text-white text-[16px] mb-2">Links Rápidos</h3>
+                        <ul className="space-y-4">
+                            <li><Link href="#solucoes" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Soluções</Link></li>
+                            <li><Link href="#diferenciais" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Diferenciais</Link></li>
+                            <li><Link href="#depoimentos" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Depoimentos</Link></li>
+                            <li><Link href="#contato" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Contato</Link></li>
                         </ul>
                     </div>
 
-                    {/* Company */}
-                    <div>
-                        <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Empresa</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Sobre nós</Link></li>
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Blog</Link></li>
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Carreiras</Link></li>
-                            <li><Link href="#contact" className="text-gray-500 hover:text-primary transition-colors text-sm">Contato</Link></li>
-                        </ul>
+                    {/* Column 3: Contato */}
+                    <div className="flex flex-col gap-4">
+                        <h3 className="font-bold text-white text-[16px] mb-2">Contato</h3>
+                        <div className="flex flex-col gap-4">
+                            <a href="#" className="flex items-center gap-3 text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">
+                                <FaWhatsapp size={18} />
+                                <span>(41) 99998-8288</span>
+                            </a>
+                            <a href="mailto:admin@klokz.com.br" className="flex items-center gap-3 text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">
+                                <FaEnvelope size={18} />
+                                <span>admin@klokz.com.br</span>
+                            </a>
+                        </div>
+                        {/* Stone Official Partner Image */}
+                        <div className="mt-4 relative w-[182px] h-14">
+                            <Image
+                                src="/images/stonepartner.png"
+                                alt="Stone Official Partner"
+                                fill
+                                className="object-contain object-left"
+                            />
+                        </div>
                     </div>
 
-                    {/* Support */}
-                    <div>
-                        <h3 className="font-semibold text-white mb-4 text-sm uppercase tracking-wider">Suporte</h3>
-                        <ul className="space-y-2">
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Central de Ajuda</Link></li>
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Termos de Uso</Link></li>
-                            <li><Link href="#" className="text-gray-500 hover:text-primary transition-colors text-sm">Política de Privacidade</Link></li>
-                        </ul>
-                    </div>
                 </div>
 
-                <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-                    <p className="text-gray-600 text-xs">
-                        © {new Date().getFullYear()} Klokz Sistemas LTDA. Todos os direitos reservados.
+                {/* Bottom Copyright */}
+                <div className="pt-8 border-t border-white/10 flex justify-center items-center">
+                    <p className="text-[#DCDCDC] text-[13px] text-center w-full font-medium">
+                        © {new Date().getFullYear()} KLOKZ SISTEMAS LTDA. Todos os direitos reservados.
                     </p>
-                    <div className="flex gap-4 text-xs text-gray-600">
-                        <span>Feito com ❤️ no Brasil</span>
-                    </div>
                 </div>
             </Container>
         </footer>

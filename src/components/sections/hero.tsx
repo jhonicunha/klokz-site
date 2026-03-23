@@ -20,8 +20,8 @@ export function Hero() {
                 <div className="absolute inset-0 bg-black/60" />
 
                 {/* Light glow effects similar to reference */}
-                <div className="absolute top-[15%] left-[5%] w-[600px] h-[600px] bg-[#00B4D8]/[0.05] rounded-full blur-[120px]" />
-                <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-[#00B4D8]/[0.08] rounded-full blur-[130px]" />
+                <div className="absolute top-[15%] left-[5%] w-[600px] h-[600px] bg-[#10A7F1]/[0.05] rounded-full blur-[120px]" />
+                <div className="absolute top-[10%] right-[10%] w-[500px] h-[500px] bg-[#10A7F1]/[0.08] rounded-full blur-[130px]" />
             </div>
 
             <Container className="relative z-10 flex flex-col items-center text-center justify-center mt-[32px] md:mt-[92px]">
@@ -43,9 +43,9 @@ export function Hero() {
                 {/* CTA Button */}
                 <div className="w-full max-w-[420px] mb-8">
                     <button
-                        className="w-full h-[48px] md:h-[54px] rounded-[8px] text-white font-bold text-[0.875rem] md:text-[14px] transition-all duration-300 hover:brightness-110 cursor-pointer shadow-[0_4px_14px_0_rgba(0,180,216,0.2)]"
+                        className="w-full h-[48px] md:h-[54px] rounded-[8px] text-white font-bold text-[0.875rem] md:text-[14px] transition-all duration-300 hover:brightness-110 cursor-pointer shadow-[0_4px_14px_0_rgba(16,167,241,0.2)]"
                         style={{
-                            background: 'linear-gradient(90deg, #00B4D8 0%, #8B5CF6 100%)',
+                            background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
                         }}
                     >
                         Testar 30 dias grátis
@@ -60,32 +60,13 @@ export function Hero() {
                         'Suporte especializado.',
                     ].map((text, idx) => (
                         <div key={idx} className="flex items-center gap-[8px]">
-                            <FaCheck className="text-[#00B4D8] text-[11px] shrink-0" />
+                            <FaCheck className="text-[#10A7F1] text-[11px] shrink-0" />
                             <span className="text-[#F4F4F5] text-[0.75rem] md:text-[0.875rem] font-medium">{text}</span>
                         </div>
                     ))}
                 </div>
 
             </Container>
-
-            {/* Accessibility button - bottom left */}
-            <button
-                className="absolute bottom-6 left-6 z-50 w-11 h-11 rounded-full flex items-center justify-center text-white transition-opacity hover:opacity-80 shadow-lg"
-                style={{ background: 'linear-gradient(135deg, #00B4D8 0%, #3B82F6 100%)' }}
-                aria-label="Acessibilidade"
-            >
-                <FaUniversalAccess size={22} />
-            </button>
-            
-            {/* WhatsApp floating button - bottom right */}
-            <a
-                href="https://wa.me/554199998288"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-6 right-6 z-50 w-12 h-12 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-            >
-                <FaWhatsapp className="text-white" size={24} />
-            </a>
         </Section>
     );
 }
