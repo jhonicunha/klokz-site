@@ -98,27 +98,59 @@ export function Navbar() {
                 </Container>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu - Full screen glass overlay */}
             {isOpen && (
-                <div className="md:hidden bg-[#0D0D0D] border-b border-white/10">
-                    <Container className="py-6 space-y-6">
+                <div className="md:hidden fixed inset-0 bg-[#0D0D0D]/70 backdrop-blur-2xl z-[60]">
+                    {/* Header inside overlay */}
+                    <Container>
+                        <div className="flex items-center justify-between h-[80px]">
+                            <Link href="/" className="flex items-center" onClick={() => setIsOpen(false)}>
+                                <div className="relative w-[202px] h-[58px]">
+                                    <Image
+                                        src="/images/logoklokz.png"
+                                        alt="Klokz Logo"
+                                        fill
+                                        className="object-contain object-left"
+                                    />
+                                </div>
+                            </Link>
+                            <button
+                                className="text-white hover:text-[#10A7F1] p-2"
+                                onClick={() => setIsOpen(false)}
+                                aria-label="Fechar menu"
+                            >
+                                <HiX size={28} />
+                            </button>
+                        </div>
+                    </Container>
+
+                    {/* Menu items */}
+                    <Container className="pt-2">
+                        {/* Top Separator Line */}
+                        <div className="h-[1px] bg-white/10 mb-2" />
+                        
                         {navLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className="block text-lg font-bold text-white hover:text-[#10A7F1]"
+                                className="block text-[16px] font-normal text-white hover:text-[#10A7F1] transition-colors py-3"
                                 onClick={() => setIsOpen(false)}
                             >
                                 {link.name}
                             </Link>
                         ))}
-                        <div className="pt-4">
+
+                        {/* Bottom Separator Line */}
+                        <div className="h-[1px] bg-white/10 mt-2 mb-6" />
+
+                        <div className="pb-2">
                             <Link
-                                href="#"
-                                className="flex justify-center w-full text-[12px] font-bold text-white uppercase tracking-wider px-6 py-4 rounded-[6px]"
+                                href="#contato"
+                                className="flex justify-center w-full text-[14px] font-bold text-white uppercase tracking-wider px-6 py-3 rounded-[8px]"
                                 style={{
                                     background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
                                 }}
+                                onClick={() => setIsOpen(false)}
                             >
                                 TESTE GRÁTIS
                             </Link>
