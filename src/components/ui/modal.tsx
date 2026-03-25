@@ -142,13 +142,13 @@ export function DescriptionModal({ isOpen, onClose, title, description, icon, fe
 
                                 {/* Footer */}
                                 <div className="px-6 md:px-8 py-6 border-t border-white/5 bg-transparent">
-                                    <button
-                                        type="button"
-                                        className="w-full rounded-[10px] bg-gradient-to-r from-[#10A7F1] to-[#882FE3] hover:brightness-110 py-[16px] text-[13px] font-bold text-white uppercase tracking-[1px] transition-all shadow-[0_4px_20px_rgba(16,167,241,0.25)]"
+                                    <a
+                                        href="#contato"
+                                        className="flex items-center justify-center w-full rounded-[10px] bg-gradient-to-r from-[#10A7F1] to-[#882FE3] hover:brightness-110 py-[16px] text-[13px] font-bold text-white uppercase tracking-[1px] transition-all shadow-[0_4px_20px_rgba(16,167,241,0.25)] cursor-pointer"
                                         onClick={onClose}
                                     >
                                         Entre em Contato
-                                    </button>
+                                    </a>
                                 </div>
 
                             </Dialog.Panel>

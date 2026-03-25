@@ -37,7 +37,24 @@ export function CtaBanner() {
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        
+        if (name === 'whatsapp') {
+            // Remove tudo que não é dígito
+            const numbers = value.replace(/\D/g, '').substring(0, 11);
+            
+            // Aplica a máscara (XX) XXXXX-XXXX
+            let masked = numbers;
+            if (numbers.length > 2) {
+                masked = `(${numbers.substring(0, 2)}) ${numbers.substring(2)}`;
+            }
+            if (numbers.length > 7) {
+                masked = `(${numbers.substring(0, 2)}) ${numbers.substring(2, 7)}-${numbers.substring(7)}`;
+            }
+            
+            setFormData(prev => ({ ...prev, [name]: masked }));
+        } else {
+            setFormData(prev => ({ ...prev, [name]: value }));
+        }
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
