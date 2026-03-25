@@ -7,6 +7,9 @@ const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], variable: "--font-space
 export const metadata: Metadata = {
   title: "Klokz — Sistema de Gestão para Bares, Baladas e Eventos",
   description: "Sistema completo de gestão para bares, casas noturnas e eventos. Controle de comandas, listas, reservas, estoque e financeiro em tempo real.",
+  other: {
+    'theme-color': '#050505',
+  },
 };
 
 import { FloatingButtons } from "@/components/ui/FloatingButtons";
@@ -18,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${spaceGrotesk.variable} antialiased font-sans bg-background text-foreground`}>
+      <body className={`${spaceGrotesk.variable} antialiased font-sans bg-[#050505] text-foreground`}>
         <div id="main-content">{children}</div>
         <FloatingButtons />
       </body>

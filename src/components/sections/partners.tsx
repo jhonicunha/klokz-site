@@ -55,7 +55,7 @@ export function Partners() {
 
                 {/* Main Dark Container */}
                 <div className="bg-[#111114] rounded-[24px] p-6 md:p-12 lg:p-16 border border-white/5 shadow-2xl">
-                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-8 items-center justify-center">
+                    <div className="grid grid-cols-4 md:grid-cols-4 lg:grid-cols-5 gap-y-4 gap-x-4 md:gap-y-12 md:gap-x-8 items-center justify-center">
                         {partners.map((partner, index) => (
                             <Link
                                 key={index}

@@ -6,24 +6,29 @@ import { FaCheck, FaWhatsapp, FaUniversalAccess } from 'react-icons/fa';
 
 export function Hero() {
     return (
-        <Section className="relative h-screen flex items-center justify-center pt-[80px] pb-0 overflow-hidden bg-[#050505]">
+        <Section className="relative min-h-screen flex items-center justify-center pt-[80px] pb-0 overflow-hidden bg-[#050505]">
 
             {/* Background & Overlay */}
             <div className="absolute inset-0 pointer-events-none">
                 {/* Base Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-top bg-no-repeat opacity-[0.4]"
-                    style={{ backgroundImage: 'url(/images/herobackground.jpg)' }}
+                    className="absolute inset-0 opacity-[0.4]"
+                    style={{ 
+                        backgroundImage: 'url(/images/herobackground.jpg)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat',
+                    }}
                 />
                 
                 {/* Dark overlay */}
-                <div className="absolute inset-0 bg-black/60" />
+                <div className="absolute inset-0 bg-black/50" />
                 
-                {/* Mobile glow (dense and overflowing) */}
+                {/* Mobile glow (shifted up and stretched to kill the black top bar) */}
                 <div 
-                    className="md:hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
+                    className="md:hidden absolute top-[-10%] left-1/2 -translate-x-1/2 w-[150vw] h-[100vh] pointer-events-none"
                     style={{
-                        background: 'radial-gradient(circle at center, rgba(16, 167, 241, 0.3) 0%, rgba(16, 167, 241, 0.15) 60%, rgba(16, 167, 241, 0) 100%)'
+                        background: 'radial-gradient(ellipse at 50% 40%, rgba(16, 167, 241, 0.35) 0%, rgba(16, 167, 241, 0.15) 60%, rgba(16, 167, 241, 0) 100%)'
                     }}
                 />
 
