@@ -9,29 +9,25 @@ import { Section } from '@/components/ui/section';
 import { FaInstagram } from 'react-icons/fa';
 
 const partners = [
-    'arena.png',
-    'dfive.png',
-    'monkey.png',
-    'velhojack.png',
-    'glasspub.png',
-    'marajah.png',
-    'bergamotta.png',
-    'butekodukareka.png',
-    'llum.png',
-    'botecoemporio.png',
-    'burley.png',
-    'burley.png', // Duplicating for structure in image if needed, but array had 18 items. Let's just use original items.
-    'fourpub.png',
-    'imperio.png',
-    'kingsmoke.png',
-    'narnia.png',
-    'p2pub.png',
-    'thepub.png',
-    'xtremeclub.png',
+    { logo: 'arena.png', instagram: 'https://www.instagram.com/arenaemporioeventos/' },
+    { logo: 'dfive.png', instagram: 'https://www.instagram.com/dfivearenaloungebar/' },
+    { logo: 'monkey.png', instagram: 'https://www.instagram.com/monkeyloungebarcwb/' },
+    { logo: 'velhojack.png', instagram: 'https://www.instagram.com/velhojackloungebar/' },
+    { logo: 'glasspub.png', instagram: 'https://www.instagram.com/glasspubofc/' },
+    { logo: 'marajah.png', instagram: 'https://www.instagram.com/marajah.club/' },
+    { logo: 'bergamotta.png', instagram: 'https://www.instagram.com/bergamotta.bar/' },
+    { logo: 'butekodukareka.png', instagram: 'https://www.instagram.com/butekodukareka/' },
+    { logo: 'llum.png', instagram: 'https://www.instagram.com/espacollumcuritiba/' },
+    { logo: 'botecoemporio.png', instagram: 'https://www.instagram.com/botecodaemporio/' },
+    { logo: 'burley.png', instagram: 'https://www.instagram.com/burley.club/' },
+    { logo: 'fourpub.png', instagram: 'https://www.instagram.com/fourpub.oficial/' },
+    { logo: 'imperio.png', instagram: 'https://www.instagram.com/imperiooloungebar/' },
+    { logo: 'kingsmoke.png', instagram: 'https://www.instagram.com/kingclub.cwb/' },
+    { logo: 'narnia.png', instagram: 'https://www.instagram.com/narnia.lounge.bar/' },
+    { logo: 'p2pub.png', instagram: 'https://www.instagram.com/p2pub/' },
+    { logo: 'thepub.png', instagram: 'https://www.instagram.com/thepuboficial/' },
+    { logo: 'xtremeclub.png', instagram: 'https://www.instagram.com/xtremeclubcuritiba/' },
 ];
-
-// Deduplicating the array just in case 
-const uniquePartners = Array.from(new Set(partners));
 
 export function Partners() {
     return (
@@ -59,11 +55,11 @@ export function Partners() {
 
                 {/* Main Dark Container */}
                 <div className="bg-[#111114] rounded-[24px] p-6 md:p-12 lg:p-16 border border-white/5 shadow-2xl">
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-8 items-center justify-center">
-                        {uniquePartners.map((logo, index) => (
+                    <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-12 gap-x-8 items-center justify-center">
+                        {partners.map((partner, index) => (
                             <Link
                                 key={index}
-                                href="https://instagram.com"
+                                href={partner.instagram}
                                 target="_blank"
                                 className="group relative flex items-center justify-center p-2 animate-pulse-scale"
                                 style={{ animationDelay: `${index * 0.15}s` }}
@@ -71,8 +67,8 @@ export function Partners() {
                                 {/* Logo Image */}
                                 <div className="relative w-20 h-20 sm:w-24 sm:h-24 grayscale brightness-0 invert opacity-50 group-hover:opacity-10 transition-opacity duration-300">
                                     <Image
-                                        src={`/images/clients/${logo}`}
-                                        alt={logo.replace('.png', '')}
+                                        src={`/images/clients/${partner.logo}`}
+                                        alt={partner.logo.replace('.png', '')}
                                         fill
                                         className="object-contain"
                                     />

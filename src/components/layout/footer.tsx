@@ -25,13 +25,13 @@ export function Footer() {
                             Soluções Inteligentes para Bares, Baladas e Eventos
                         </p>
                         <div className="flex gap-4 mt-2">
-                            <a href="#" className="text-white hover:text-primary transition-colors" aria-label="Instagram">
+                            <a href="https://www.instagram.com/klokz.erp/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors" aria-label="Instagram">
                                 <FaInstagram size={22} className="stroke-1" />
                             </a>
-                            <a href="#" className="text-white hover:text-primary transition-colors" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/company/klokz" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors" aria-label="LinkedIn">
                                 <FaLinkedin size={22} className="stroke-1" />
                             </a>
-                            <a href="#" className="text-white hover:text-primary transition-colors" aria-label="WhatsApp">
+                            <a href="https://wa.me/5541999988288" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors" aria-label="WhatsApp">
                                 <FaWhatsapp size={22} className="stroke-1" />
                             </a>
                         </div>
@@ -52,7 +52,7 @@ export function Footer() {
                     <div className="flex flex-col gap-4">
                         <h3 className="font-bold text-white text-[16px] mb-2">Contato</h3>
                         <div className="flex flex-col gap-4">
-                            <a href="#" className="flex items-center gap-3 text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">
+                            <a href="https://wa.me/5541999988288" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">
                                 <FaWhatsapp size={18} />
                                 <span>(41) 99998-8288</span>
                             </a>
@@ -61,21 +61,31 @@ export function Footer() {
                                 <span>admin@klokz.com.br</span>
                             </a>
                         </div>
-                        {/* Stone Official Partner Image */}
-                        <div className="mt-4 relative w-[182px] h-14">
-                            <Image
-                                src="/images/stonepartner.png"
-                                alt="Stone Official Partner"
-                                fill
-                                className="object-contain object-left"
-                            />
+                        {/* Partner Logos */}
+                        <div className="mt-4 flex items-center gap-4">
+                            <div className="relative w-[112px] h-[45px] md:w-[140px] md:h-14">
+                                <Image
+                                    src="/images/stonepartner.png"
+                                    alt="Stone Official Partner"
+                                    fill
+                                    className="object-contain object-left"
+                                />
+                            </div>
+                            <div className="relative w-[112px] h-[45px] md:w-[140px] md:h-14">
+                                <Image
+                                    src="/images/logogetnet.png"
+                                    alt="Getnet"
+                                    fill
+                                    className="object-contain object-left"
+                                />
+                            </div>
                         </div>
                     </div>
 
                 </div>
 
                 {/* Bottom Copyright */}
-                <div className="pt-8 border-t border-white/10 flex justify-center items-center">
+                <div id="footer-copyright" className="pt-8 border-t border-white/10 flex justify-center items-center">
                     <p className="text-[#DCDCDC] text-[13px] text-center w-full font-medium">
                         © {new Date().getFullYear()} KLOKZ SISTEMAS LTDA. Todos os direitos reservados.
                     </p>

@@ -287,7 +287,7 @@ export function IntegratedSolutions() {
             <Container>
                 <div className="text-center max-w-3xl mx-auto mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">
-                        Uma operação. Um <span className="efeito-piscante-roxo" data-text="sistema.">sistema.</span>
+                        Uma operação.<br className="block md:hidden" /> Um <span className="efeito-piscante-roxo" data-text="sistema.">sistema.</span>
                     </h2>
                     <p className="text-gray-400 text-base md:text-lg">
                         Da portaria ao financeiro — tudo integrado.

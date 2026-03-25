@@ -65,9 +65,10 @@ export function Navbar() {
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className="text-[14px] font-bold tracking-wide text-[#E4E4E7] hover:text-[#10A7F1] transition-colors"
+                                    className="relative text-[14px] font-bold tracking-wide text-[#E4E4E7] hover:text-[#10A7F1] transition-colors group"
                                 >
                                     {link.name}
+                                    <span className="absolute left-0 -bottom-1 h-[2px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out rounded-full bg-gradient-to-r from-[#10A7F1] to-[#882FE3]" />
                                 </Link>
                             ))}
                         </nav>
@@ -100,7 +101,7 @@ export function Navbar() {
 
             {/* Mobile Menu - Full screen glass overlay */}
             {isOpen && (
-                <div className="md:hidden fixed inset-0 bg-[#0D0D0D]/70 backdrop-blur-2xl z-[60]">
+                <div className="md:hidden fixed inset-0 bg-[#0D0D0D]/70 backdrop-blur-2xl z-[60] animate-fade-in">
                     {/* Header inside overlay */}
                     <Container>
                         <div className="flex items-center justify-between h-[80px]">

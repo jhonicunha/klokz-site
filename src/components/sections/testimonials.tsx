@@ -96,7 +96,7 @@ export function Testimonials() {
                 </div>
 
                 {/* Carousel Wrapper */}
-                <div className="relative max-w-5xl mx-auto px-10 sm:px-14">
+                <div className="relative max-w-5xl mx-auto px-0 md:px-14">
                     {/* The overflowing window where cards slide */}
                     <div className="overflow-hidden p-2 -m-2">
                         {/* The sliding track */}
@@ -152,14 +152,14 @@ export function Testimonials() {
                     {/* Navigation Buttons */}
                     <button
                         onClick={prevSlide}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#10A7F1] text-white flex items-center justify-center hover:scale-110 hover:bg-[#008DD1] transition-all shadow-lg z-10 focus:outline-none"
+                        className="hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#10A7F1] text-white items-center justify-center hover:scale-110 hover:bg-[#008DD1] transition-all shadow-lg z-10 focus:outline-none"
                         aria-label="Previous testimonial"
                     >
                         <FaChevronLeft size={16} />
                     </button>
                     <button
                         onClick={nextSlide}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#10A7F1] text-white flex items-center justify-center hover:scale-110 hover:bg-[#008DD1] transition-all shadow-lg z-10 focus:outline-none"
+                        className="hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#10A7F1] text-white items-center justify-center hover:scale-110 hover:bg-[#008DD1] transition-all shadow-lg z-10 focus:outline-none"
                         aria-label="Next testimonial"
                     >
                         <FaChevronRight size={16} />

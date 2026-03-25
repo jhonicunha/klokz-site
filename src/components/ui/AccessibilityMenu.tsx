@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { FaWheelchair, FaMinus, FaPlus, FaTimes } from "react-icons/fa";
 
-export function AccessibilityMenu() {
+export function AccessibilityMenu({ embedded = false }: { embedded?: boolean }) {
     const [isOpen, setIsOpen] = useState(false);
     
     // Accessibility States
@@ -12,8 +12,11 @@ export function AccessibilityMenu() {
     
     // Apply Settings
     useEffect(() => {
-        // Apply Text Size by modifying html root font size percentage
-        document.documentElement.style.fontSize = `${textSize}%`;
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+            // Use CSS zoom to scale content without affecting rem values
+            mainContent.style.zoom = `${textSize / 100}`;
+        }
         
         // Apply High Contrast class to html root
         if (highContrast) {
@@ -33,15 +36,15 @@ export function AccessibilityMenu() {
     };
 
     return (
-        <div className="fixed left-0 bottom-6 z-[100] flex items-center">
+        <div className={embedded ? "flex items-center" : "fixed left-0 bottom-6 z-[100] flex items-center"}>
             
             {/* The Tab / Flag */}
             <button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`
-                    w-10 h-11 bg-gradient-to-br from-[#10A7F1] to-[#882FE3] 
+                    w-8 h-9 bg-gradient-to-br from-[#10A7F1] to-[#882FE3] 
                     rounded-r-xl flex items-center justify-center
-                    shadow-lg hover:w-14 transition-all duration-300
+                    shadow-lg hover:w-12 transition-all duration-300
                     ${isOpen ? '-translate-x-full' : 'translate-x-0'}
                 `}
                 aria-label="Menu de Acessibilidade"

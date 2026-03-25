@@ -55,14 +55,15 @@ export function Hero() {
 
                 {/* CTA Button */}
                 <div className="w-full px-0 md:max-w-[420px] mb-8">
-                    <button
-                        className="w-full h-[48px] md:h-[54px] rounded-[8px] text-white font-bold text-[0.875rem] md:text-[14px] transition-all duration-300 hover:brightness-110 cursor-pointer shadow-[0_4px_14px_0_rgba(16,167,241,0.2)]"
+                    <a
+                        href="#contato"
+                        className="flex items-center justify-center w-full h-[48px] md:h-[54px] rounded-[8px] text-white font-bold text-[0.875rem] md:text-[14px] transition-all duration-300 hover:brightness-110 cursor-pointer shadow-[0_4px_14px_0_rgba(16,167,241,0.2)]"
                         style={{
                             background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
                         }}
                     >
                         Testar 30 dias grátis
-                    </button>
+                    </a>
                 </div>
 
                 {/* Checkmarks */}
