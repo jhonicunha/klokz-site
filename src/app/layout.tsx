@@ -13,6 +13,8 @@ export const metadata: Metadata = {
 };
 
 import { FloatingButtons } from "@/components/ui/FloatingButtons";
+import GoogleAnalytics from "@/components/scripts/GoogleAnalytics";
+import { GTMHead, GTMBody } from "@/components/scripts/GoogleTagManager";
 
 export default function RootLayout({
   children,
@@ -21,7 +23,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
+      <head>
+        <GTMHead />
+        <GoogleAnalytics />
+      </head>
       <body className={`${spaceGrotesk.variable} antialiased font-sans bg-[#050505] text-foreground`}>
+        <GTMBody />
         <div id="main-content">{children}</div>
         <FloatingButtons />
       </body>

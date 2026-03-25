@@ -31,7 +31,7 @@ export function Footer() {
                             <a href="https://www.linkedin.com/company/klokz" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors" aria-label="LinkedIn">
                                 <FaLinkedin size={22} className="stroke-1" />
                             </a>
-                            <a href="https://wa.me/5541999988288" target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors" aria-label="WhatsApp">
+                            <a                 href="https://wa.me/5541999988288?text=Ol%C3%A1!%20Vi%20o%20site%20e%20estou%20buscando%20um%20sistema%20de%20gest%C3%A3o%20para%20bares%20e%20eventos.%20Gostaria%20de%20saber%20mais%20sobre%20o%20Klokz." target="_blank" rel="noopener noreferrer" className="text-white hover:text-primary transition-colors" aria-label="WhatsApp">
                                 <FaWhatsapp size={22} className="stroke-1" />
                             </a>
                         </div>
@@ -52,7 +52,7 @@ export function Footer() {
                     <div className="flex flex-col gap-4">
                         <h3 className="font-bold text-white text-[16px] mb-2">Contato</h3>
                         <div className="flex flex-col gap-4">
-                            <a href="https://wa.me/5541999988288" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">
+                            <a                 href="https://wa.me/5541999988288?text=Ol%C3%A1!%20Vi%20o%20site%20e%20estou%20buscando%20um%20sistema%20de%20gest%C3%A3o%20para%20bares%20e%20eventos.%20Gostaria%20de%20saber%20mais%20sobre%20o%20Klokz." target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">
                                 <FaWhatsapp size={18} />
                                 <span>(41) 99998-8288</span>
                             </a>
