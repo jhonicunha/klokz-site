@@ -25,7 +25,7 @@ const partners = [
     { logo: 'monkey.png', instagram: 'https://www.instagram.com/monkeyloungebarcwb/' },
     { logo: 'narnia.png', instagram: 'https://www.instagram.com/narnia.lounge.bar/' },
     { logo: 'p2pub.png', instagram: 'https://www.instagram.com/p2pub/' },
-    { logo: 'smithy.png', instagram: 'https://www.instagram.com/smithy' },
+    { logo: 'smithy.png', instagram: 'https://www.instagram.com/smithy_empreendimentos_tefe/' },
     { logo: 'thepub.png', instagram: 'https://www.instagram.com/thepuboficial/' },
     { logo: 'velhojack.png', instagram: 'https://www.instagram.com/velhojackloungebar/' },
     { logo: 'xtremeclub.png', instagram: 'https://www.instagram.com/xtremeclubcuritiba/' },
