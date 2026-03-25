@@ -12,7 +12,7 @@ export function Hero() {
             <div className="absolute inset-0 pointer-events-none">
                 {/* Base Background Image */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.4]"
+                    className="absolute inset-0 bg-cover bg-top bg-no-repeat opacity-[0.4]"
                     style={{ backgroundImage: 'url(/images/herobackground.jpg)' }}
                 />
                 
