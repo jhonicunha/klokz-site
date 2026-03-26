@@ -40,6 +40,7 @@ Thumbs.db
 *.app
 *.exe
 *.war
+*.app
 
 # Large media files
 *.mp4
@@ -48,4 +49,17 @@ Thumbs.db
 *.flv
 *.mov
 *.wmv
+
+# Environment variables
+.env*
+!.env.example
+
+# Local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
 
