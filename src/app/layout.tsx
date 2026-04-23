@@ -38,6 +38,9 @@ export const metadata: Metadata = {
   },
   verification: {
     google: "HvmALWs3u80ZWrEcuA_pmUmZr-WrqEtLwfW79d9TKpo",
+    other: {
+      "linkedin-site-verification": ["AQWz1Bl8rXSMfXtoYH1Cg22k6w11K_GVNIPd44jvRSWixKxYZYFcSoCg-CvWqWS_TukBbZzTL_jCjw3KgBAIQmVUM4Gg_xsGtpJUW9XuTEPuuWwJqxihYmjFXNCpWhSS5cvBP0DwnWxjEoX1YxOpxOH2Qdpi3I8liwFMBpFwtIdX1tg2D3suC9KNulzbZa5bpI6oZomN8x3DG3Bibn3y6t0RgIMhBDalFLWIcS6lxsUdPeM-RsOCGT6tTGNjUdkYFkL6GbTmZ7O9QG4cblbBuyhXaif2KRaE7yv9ZidLyj9CSr1E3te2Q9372pAdHZUt5RdJmT2A20YZvT2jkTUiWgoIDSiemIKPwViB8CH3XmXTtYlcfuNQjwqMY0lzwHa12SZjqvwWdtzxLNnivKCtaDxhEndQyPE1NAI-CdPGMlNI1bpYUBmp6s4-sk2nTpqEEHi8bGw1-0R_ZNqfOOc"]
+    }
   },
   other: {
     'theme-color': '#050505',
