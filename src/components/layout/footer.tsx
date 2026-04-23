@@ -1,11 +1,14 @@
+"use client";
 
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { FaInstagram, FaLinkedin, FaWhatsapp, FaEnvelope } from 'react-icons/fa';
+import { useCta } from '@/components/providers/cta-provider';
 
 export function Footer() {
+    const { link: ctaLink } = useCta();
     return (
         <footer className="bg-black pt-16 pb-8 border-t border-[#10A7F1]/30">
             <Container>
@@ -18,6 +21,7 @@ export function Footer() {
                                 src="/images/logoklokz.png"
                                 alt="Klokz Logo"
                                 fill
+                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                 className="object-contain object-left"
                             />
                         </div>
@@ -44,7 +48,7 @@ export function Footer() {
                             <li><Link href="#solucoes" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Soluções</Link></li>
                             <li><Link href="#diferenciais" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Diferenciais</Link></li>
                             <li><Link href="#depoimentos" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Depoimentos</Link></li>
-                            <li><Link href="#contato" className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Contato</Link></li>
+                            <li><Link href={ctaLink} className="text-[#DCDCDC] hover:text-white transition-colors text-[14px] font-medium">Contato</Link></li>
                         </ul>
                     </div>
 
@@ -68,6 +72,7 @@ export function Footer() {
                                     src="/images/stonepartner.png"
                                     alt="Stone Official Partner"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-contain object-left"
                                 />
                             </div>
@@ -76,6 +81,7 @@ export function Footer() {
                                     src="/images/logogetnet.png"
                                     alt="Getnet"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-contain object-left"
                                 />
                             </div>

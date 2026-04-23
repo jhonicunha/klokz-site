@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
 import { HiMenu, HiX } from 'react-icons/hi';
+import { useCta } from '@/components/providers/cta-provider';
 
 const navLinks = [
     { name: 'Soluções', href: '#solucoes' },
@@ -17,6 +18,11 @@ const navLinks = [
 export function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const { link: ctaLink, isWhatsapp } = useCta();
+
+    const resolvedNavLinks = navLinks.map(link => 
+        link.href === '#contato' ? { ...link, href: ctaLink } : link
+    );
 
     useEffect(() => {
         const handleScroll = () => {
@@ -53,6 +59,7 @@ export function Navbar() {
                                     src="/images/logoklokz.png"
                                     alt="Klokz Logo"
                                     fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="object-contain object-left"
                                     priority
                                 />
@@ -61,7 +68,7 @@ export function Navbar() {
 
                         {/* Desktop Navigation - Centered */}
                         <nav className="hidden md:flex items-center gap-[40px] absolute left-1/2 -translate-x-1/2">
-                            {navLinks.map((link) => (
+                            {resolvedNavLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
@@ -77,8 +84,8 @@ export function Navbar() {
                         <div className="flex items-center gap-4">
                             <div className="hidden md:block">
                                 <Link
-                                    href="#contato"
-                                    className="inline-flex items-center justify-center text-[11px] font-bold text-white uppercase tracking-wider px-[22px] py-[10px] rounded-[6px] transition-all duration-200 hover:brightness-110"
+                                    href={ctaLink}
+                                    className="inline-flex items-center justify-center text-[11px] font-bold text-white uppercase tracking-wider px-[22px] py-[10px] rounded-[6px] transition-all duration-200 hover:brightness-110 shadow-lg hover:shadow-xl"
                                     style={{
                                         background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
                                     }}
@@ -111,6 +118,7 @@ export function Navbar() {
                                         src="/images/logoklokz.png"
                                         alt="Klokz Logo"
                                         fill
+                                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                         className="object-contain object-left"
                                     />
                                 </div>
@@ -130,7 +138,7 @@ export function Navbar() {
                         {/* Top Separator Line */}
                         <div className="h-[1px] bg-white/10 mb-2" />
                         
-                        {navLinks.map((link) => (
+                        {resolvedNavLinks.map((link) => (
                             <Link
                                 key={link.name}
                                 href={link.href}
@@ -146,8 +154,8 @@ export function Navbar() {
 
                         <div className="pb-2">
                             <Link
-                                href="#contato"
-                                className="flex justify-center w-full text-[14px] font-bold text-white uppercase tracking-wider px-6 py-3 rounded-[8px]"
+                                href={ctaLink}
+                                className="flex justify-center w-full text-[14px] font-bold text-white uppercase tracking-wider px-6 py-3 rounded-[8px] shadow-lg hover:shadow-xl"
                                 style={{
                                     background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
                                 }}

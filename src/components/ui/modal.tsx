@@ -1,6 +1,9 @@
+"use client";
+
 import React, { Fragment } from 'react';
 import { Dialog, Transition, Disclosure } from '@headlessui/react';
 import { FaTimes, FaPlus, FaMinus } from 'react-icons/fa';
+import { useCta } from '@/components/providers/cta-provider';
 
 export interface AccordionSubItem {
     title: string;
@@ -24,6 +27,7 @@ interface ModalProps {
 }
 
 export function DescriptionModal({ isOpen, onClose, title, description, icon, features, accordionItems }: ModalProps) {
+    const { link: ctaLink } = useCta();
     return (
         <Transition appear show={isOpen} as={Fragment}>
             <Dialog as="div" className="relative z-50 text-left" onClose={onClose}>
@@ -143,7 +147,7 @@ export function DescriptionModal({ isOpen, onClose, title, description, icon, fe
                                 {/* Footer */}
                                 <div className="px-6 md:px-8 py-6 border-t border-white/5 bg-transparent">
                                     <a
-                                        href="#contato"
+                                        href={ctaLink}
                                         className="flex items-center justify-center w-full rounded-[10px] bg-gradient-to-r from-[#10A7F1] to-[#882FE3] hover:brightness-110 py-[16px] text-[13px] font-bold text-white uppercase tracking-[1px] transition-all shadow-[0_4px_20px_rgba(16,167,241,0.25)] cursor-pointer"
                                         onClick={onClose}
                                     >
