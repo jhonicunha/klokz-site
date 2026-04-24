@@ -97,17 +97,19 @@ export function Navbar({ backOnly }: NavbarProps = {}) {
 
                         {/* CTA & Mobile Toggle */}
                         <div className="flex items-center gap-4">
-                            <div className="hidden md:block">
-                                <Link
-                                    href={ctaLink}
-                                    className="inline-flex items-center justify-center text-[11px] font-bold text-white uppercase tracking-wider px-[22px] py-[10px] rounded-[6px] transition-all duration-200 hover:brightness-110 shadow-lg hover:shadow-xl"
-                                    style={{
-                                        background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
-                                    }}
-                                >
-                                    TESTE GRÁTIS
-                                </Link>
-                            </div>
+                            {!backOnly && (
+                                <div className="hidden md:block">
+                                    <Link
+                                        href={ctaLink}
+                                        className="inline-flex items-center justify-center text-[11px] font-bold text-white uppercase tracking-wider px-[22px] py-[10px] rounded-[6px] transition-all duration-200 hover:brightness-110 shadow-lg hover:shadow-xl"
+                                        style={{
+                                            background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
+                                        }}
+                                    >
+                                        TESTE GRÁTIS
+                                    </Link>
+                                </div>
+                            )}
 
                             <button
                                 className="md:hidden text-white hover:text-[#10A7F1] p-2"
@@ -175,21 +177,24 @@ export function Navbar({ backOnly }: NavbarProps = {}) {
                             ))
                         )}
 
-                        {/* Bottom Separator Line */}
-                        <div className="h-[1px] bg-white/10 mt-2 mb-6" />
-
-                        <div className="pb-2">
-                            <Link
-                                href={ctaLink}
-                                className="flex justify-center w-full text-[14px] font-bold text-white uppercase tracking-wider px-6 py-3 rounded-[8px] shadow-lg hover:shadow-xl"
-                                style={{
-                                    background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
-                                }}
-                                onClick={() => setIsOpen(false)}
-                            >
-                                TESTE GRÁTIS
-                            </Link>
-                        </div>
+                        {/* Bottom Separator Line & CTA */}
+                        {!backOnly && (
+                            <>
+                                <div className="h-[1px] bg-white/10 mt-2 mb-6" />
+                                <div className="pb-2">
+                                    <Link
+                                        href={ctaLink}
+                                        className="flex justify-center w-full text-[14px] font-bold text-white uppercase tracking-wider px-6 py-3 rounded-[8px] shadow-lg hover:shadow-xl"
+                                        style={{
+                                            background: 'linear-gradient(90deg, #10A7F1 0%, #882FE3 100%)',
+                                        }}
+                                        onClick={() => setIsOpen(false)}
+                                    >
+                                        TESTE GRÁTIS
+                                    </Link>
+                                </div>
+                            </>
+                        )}
                     </Container>
                 </div>
             )}
