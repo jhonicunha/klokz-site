@@ -90,11 +90,13 @@ export function Footer() {
 
                 </div>
 
-                {/* Bottom Copyright */}
-                <div id="footer-copyright" className="pt-8 border-t border-white/10 flex justify-center items-center">
-                    <p className="text-[#DCDCDC] text-[13px] text-center w-full font-medium">
+                <div id="footer-copyright" className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-center md:justify-between items-center gap-4">
+                    <p className="text-[#DCDCDC] text-[13px] text-center md:text-left font-medium">
                         © {new Date().getFullYear()} KLOKZ SISTEMAS LTDA. Todos os direitos reservados.
                     </p>
+                    <Link href="/politica-de-privacidade" className="text-[#DCDCDC] hover:text-white transition-colors text-[13px] font-medium">
+                        Política de Privacidade
+                    </Link>
                 </div>
             </Container>
         </footer>

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Container } from '@/components/ui/container';
-import { HiMenu, HiX } from 'react-icons/hi';
+import { HiMenu, HiX, HiArrowLeft } from 'react-icons/hi';
 import { useCta } from '@/components/providers/cta-provider';
 
 const navLinks = [
@@ -15,7 +15,11 @@ const navLinks = [
     { name: 'Contato', href: '#contato' },
 ];
 
-export function Navbar() {
+interface NavbarProps {
+    backOnly?: boolean;
+}
+
+export function Navbar({ backOnly }: NavbarProps = {}) {
     const [isOpen, setIsOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
     const { link: ctaLink, isWhatsapp } = useCta();
@@ -68,16 +72,27 @@ export function Navbar() {
 
                         {/* Desktop Navigation - Centered */}
                         <nav className="hidden md:flex items-center gap-[40px] absolute left-1/2 -translate-x-1/2">
-                            {resolvedNavLinks.map((link) => (
+                            {backOnly ? (
                                 <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className="relative text-[14px] font-bold tracking-wide text-[#E4E4E7] hover:text-[#10A7F1] transition-colors group"
+                                    href="/"
+                                    className="flex items-center gap-2 text-[14px] font-bold tracking-wide text-[#E4E4E7] hover:text-[#10A7F1] transition-colors group"
                                 >
-                                    {link.name}
+                                    <HiArrowLeft size={18} />
+                                    Voltar para o Início
                                     <span className="absolute left-0 -bottom-1 h-[2px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out rounded-full bg-gradient-to-r from-[#10A7F1] to-[#882FE3]" />
                                 </Link>
-                            ))}
+                            ) : (
+                                resolvedNavLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        className="relative text-[14px] font-bold tracking-wide text-[#E4E4E7] hover:text-[#10A7F1] transition-colors group"
+                                    >
+                                        {link.name}
+                                        <span className="absolute left-0 -bottom-1 h-[2px] w-full origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out rounded-full bg-gradient-to-r from-[#10A7F1] to-[#882FE3]" />
+                                    </Link>
+                                ))
+                            )}
                         </nav>
 
                         {/* CTA & Mobile Toggle */}
@@ -138,16 +153,27 @@ export function Navbar() {
                         {/* Top Separator Line */}
                         <div className="h-[1px] bg-white/10 mb-2" />
                         
-                        {resolvedNavLinks.map((link) => (
+                        {backOnly ? (
                             <Link
-                                key={link.name}
-                                href={link.href}
-                                className="block text-[16px] font-normal text-white hover:text-[#10A7F1] transition-colors py-3"
+                                href="/"
+                                className="flex items-center gap-2 text-[16px] font-normal text-white hover:text-[#10A7F1] transition-colors py-3"
                                 onClick={() => setIsOpen(false)}
                             >
-                                {link.name}
+                                <HiArrowLeft size={18} />
+                                Voltar para o Início
                             </Link>
-                        ))}
+                        ) : (
+                            resolvedNavLinks.map((link) => (
+                                <Link
+                                    key={link.name}
+                                    href={link.href}
+                                    className="block text-[16px] font-normal text-white hover:text-[#10A7F1] transition-colors py-3"
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {link.name}
+                                </Link>
+                            ))
+                        )}
 
                         {/* Bottom Separator Line */}
                         <div className="h-[1px] bg-white/10 mt-2 mb-6" />
