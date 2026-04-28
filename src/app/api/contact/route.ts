@@ -19,7 +19,7 @@ export async function POST(req: Request) {
         // 2. Configurar o conteúdo do e-mail
         const mailOptions = {
             from: `"Klokz Site" <${process.env.SMTP_USER}>`,
-            to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
+            to: `${process.env.CONTACT_EMAIL || process.env.SMTP_USER}, candido.wype@gmail.com`,
             subject: `Novo Lead do Site: ${name}`,
             text: `
                 Novo contato recebido do formulário do site:
